@@ -1,0 +1,22 @@
+{
+  "name": "chatroom",
+  "main": "src/index.js",
+  "compatibility_date": "2025-09-01",
+  "assets": { "directory": "./public" },
+  "durable_objects": {
+    "bindings": [{ "name": "CHAT_ROOM", "class_name": "ChatRoom" }]
+  },
+  "migrations": [{ "tag": "v1", "new_sqlite_classes": ["ChatRoom"] }],
+
+  // The accounts database. Create it in the dashboard (see SETUP.md), then paste its ID here.
+  "d1_databases": [
+    { "binding": "DB", "database_name": "bs-site", "database_id": "9b993323-a1ac-4664-aae0-ca2291dd1323" }
+  ],
+
+  // Send YOURDOMAIN.COM/api/* to this Worker so the login cookie belongs to your own site.
+  // Use the exact host your pages are served from (www.yourdomain.com and yourdomain.com are different).
+  // If the site answers on both, list both.
+  "routes": [
+    { "pattern": "burgersandwich.jp/api/*", "zone_name": "burgersandwich.jp" }
+  ]
+}
